@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-using BepInEx.Configuration;
 using HarmonyLib;
 using System.Collections.Generic;
 using System.Reflection;
@@ -13,15 +12,9 @@ namespace PeglinTweaks
     {
         private readonly Harmony harmony = new(PluginInfo.PLUGIN_GUID);
 
-        private ConfigEntry<float> cookbookBombChanceCfg;
-
-        public static float cookbookBombChance;
-
         private void Awake()
         {
-            cookbookBombChanceCfg = Config.Bind("Relics", "Cookbook_Bomb_Chance", 0.07F, "Alchemist's cookbook bomb conversion chance. Use a value between 0 and 1");
-
-            cookbookBombChance = cookbookBombChanceCfg.Value;
+            Configuration.BindConfigs(Config);
 
             harmony.PatchAll();
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
@@ -39,8 +32,10 @@ namespace PeglinTweaks
             {
                 if (instruction.LoadsField(chanceField))
                 {
+                    //There's an object we don't need on the stack, so pop it
                     yield return new CodeInstruction(OpCodes.Pop);
-                    yield return new CodeInstruction(OpCodes.Ldc_R4, Plugin.cookbookBombChance);
+                    //Push a float32 onto the stack, using the value from our config
+                    yield return new CodeInstruction(OpCodes.Ldc_R4, Configuration.CookbookBombChance);
                 }
                 else
                 {
