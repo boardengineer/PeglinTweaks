@@ -15,4 +15,15 @@ namespace PeglinTweaks.Pachinko
             ____bounceCount = Configuration.AimerBounces;
         }
     }
+
+    [HarmonyPatch(typeof(PachinkoBall), "Start")]
+    class PhysicsPatch
+    {
+        public static void Prefix(ref float ___GravityScale, ref float ___FireForce, ref float ___MaxSpeed)
+        {
+            ___GravityScale = Configuration.Gravity;
+            ___FireForce = Configuration.FireForce;
+            ___MaxSpeed = Configuration.MaxSpeed;
+        }
+    }
 }
