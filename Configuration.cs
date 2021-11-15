@@ -18,6 +18,8 @@ namespace PeglinTweaks
         //Battle
         private static ConfigEntry<float> playerDmgMultiplierCfg;
         private static ConfigEntry<float> enemyDmgMultiplierCfg;
+        private static ConfigEntry<float> playerStartingHealthCfg;
+        private static ConfigEntry<float> enemyHealthMultiplierCfg;
 
         public static void BindConfigs(ConfigFile config)
         {
@@ -40,6 +42,10 @@ namespace PeglinTweaks
                 "Multiplier for all damage dealt by the player");
             enemyDmgMultiplierCfg = config.Bind("Battle", "Enemy_Dmg_Multiplier", 1f,
                 "Multiplier for all damage dealt by enemies");
+            playerStartingHealthCfg = config.Bind("Battle", "Player_Starting_Health", 100f,
+                "The amount of health the player starts with");
+            enemyHealthMultiplierCfg = config.Bind("Battle", "Enemy_Health_Multiplier", 1f,
+                "Multiplier for enemies' starting health");
         }
 
         //Relics
@@ -56,5 +62,7 @@ namespace PeglinTweaks
         //Battle
         public static float PlayerDmgMultiplier => playerDmgMultiplierCfg.Value;
         public static float EnemyDmgMultiplier => enemyDmgMultiplierCfg.Value;
+        public static float PlayerStartingHealth => playerStartingHealthCfg.Value;
+        public static float EnemyHealthMultiplier => enemyHealthMultiplierCfg.Value;
     }
 }

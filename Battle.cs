@@ -15,4 +15,23 @@ namespace PeglinTweaks.Battle
     {
         public static void Prefix(ref float damage) => damage *= Configuration.EnemyDmgMultiplier;
     }
+
+    [HarmonyPatch(typeof(GameInit), "Start")]
+    class PlayerStartHealthPatch
+    {
+        public static void Prefix(FloatVariable ___maxPlayerHealth, FloatVariable ___playerHealth)
+        {
+            ___maxPlayerHealth._initialValue = Configuration.PlayerStartingHealth;
+            ___playerHealth._initialValue = Configuration.PlayerStartingHealth;
+        }
+    }
+
+    [HarmonyPatch(typeof(Enemy), "Initialize")]
+    class EnemyHealthMultiplierPatch
+    {
+        public static void Prefix(ref float ___StartingHealth)
+        {
+            ___StartingHealth *= Configuration.EnemyHealthMultiplier;
+        }
+    }
 }
