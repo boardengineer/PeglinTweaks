@@ -15,6 +15,9 @@ namespace PeglinTweaks
         private static ConfigEntry<float> fireForceCfg;
         private static ConfigEntry<float> maxSpeedCfg;
 
+        //Battle
+        private static ConfigEntry<float> playerDmgMultiplierCfg;
+
         public static void BindConfigs(ConfigFile config)
         {
             //Relics
@@ -27,6 +30,10 @@ namespace PeglinTweaks
             gravityCfg = config.Bind("Pachinko", "Gravity", 1.2f, "The strength of gravity on orbs");
             fireForceCfg = config.Bind("Pachinko", "Fire_Force", 400f, "The strength with which orbs are fired");
             maxSpeedCfg = config.Bind("Pachinko", "Max_Speed", 55f, "The maximum speed of an orb");
+
+            //Battle
+            playerDmgMultiplierCfg = config.Bind("Battle", "Player_Dmg_Multiplier", 1f,
+                "Multiplier for all damage dealt by the player");
         }
 
         //Relics
@@ -39,5 +46,8 @@ namespace PeglinTweaks
         public static float Gravity => gravityCfg.Value;
         public static float FireForce => fireForceCfg.Value;
         public static float MaxSpeed => maxSpeedCfg.Value;
+        
+        //Battle
+        public static float PlayerDmgMultiplier => playerDmgMultiplierCfg.Value;
     }
 }
