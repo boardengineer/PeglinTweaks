@@ -4,10 +4,14 @@ using HarmonyLib;
 
 namespace PeglinTweaks.Battle
 {
-    [HarmonyPatch(typeof(Enemy), "Damage")]
+    [HarmonyPatch(typeof(Attack), "Initialize")]
     class PlayerDmgMultiplierPatch
     {
-        public static void Prefix(ref float damage) => damage *= Configuration.PlayerDmgMultiplier;
+        public static void Prefix(ref float ___DamagePerPeg, ref float ___CritDamagePerPeg)
+        {
+            ___DamagePerPeg *= Configuration.PlayerDmgMultiplier;
+            ___CritDamagePerPeg *= Configuration.PlayerDmgMultiplier;
+        }
     }
 
     [HarmonyPatch(typeof(PlayerHealthController), "Damage")]
