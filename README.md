@@ -15,3 +15,14 @@ crash your computer, or set your house on fire.
 ## Configuration
 
 The mod is configured via the `BepInEx/config/me.bo0tzz.peglin.Tweaks.cfg` file.  
+
+## Features
+
+* Tweak the physics of the pachinko game (gravity, etc)
+* Tweak your and enemies' health and damage
+* Tweak the length and bounce count of the aiming reticle
+* Edit odds and bonuses that you get from relics
+  * Change the peg to bomb conversion chance from Alchemists' cookbook
+  * More to come  
+
+Any other features you'd like to see? Feel free to reach out and ask!
