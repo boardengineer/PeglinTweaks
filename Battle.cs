@@ -1,4 +1,5 @@
-﻿using Battle.Enemies;
+﻿using Battle;
+using Battle.Enemies;
 using HarmonyLib;
 
 namespace PeglinTweaks.Battle
@@ -7,5 +8,11 @@ namespace PeglinTweaks.Battle
     class PlayerDmgMultiplierPatch
     {
         public static void Prefix(ref float damage) => damage *= Configuration.PlayerDmgMultiplier;
+    }
+
+    [HarmonyPatch(typeof(PlayerHealthController), "Damage")]
+    class EnemyDmgMultiplierPatch
+    {
+        public static void Prefix(ref float damage) => damage *= Configuration.EnemyDmgMultiplier;
     }
 }

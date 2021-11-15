@@ -17,6 +17,7 @@ namespace PeglinTweaks
 
         //Battle
         private static ConfigEntry<float> playerDmgMultiplierCfg;
+        private static ConfigEntry<float> enemyDmgMultiplierCfg;
 
         public static void BindConfigs(ConfigFile config)
         {
@@ -37,6 +38,8 @@ namespace PeglinTweaks
             //Battle
             playerDmgMultiplierCfg = config.Bind("Battle", "Player_Dmg_Multiplier", 1f,
                 "Multiplier for all damage dealt by the player");
+            enemyDmgMultiplierCfg = config.Bind("Battle", "Enemy_Dmg_Multiplier", 1f,
+                "Multiplier for all damage dealt by enemies");
         }
 
         //Relics
@@ -49,8 +52,9 @@ namespace PeglinTweaks
         public static float Gravity => gravityCfg.Value;
         public static float FireForce => fireForceCfg.Value;
         public static float MaxSpeed => maxSpeedCfg.Value;
-        
+
         //Battle
         public static float PlayerDmgMultiplier => playerDmgMultiplierCfg.Value;
+        public static float EnemyDmgMultiplier => enemyDmgMultiplierCfg.Value;
     }
 }
