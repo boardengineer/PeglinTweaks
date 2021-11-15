@@ -14,6 +14,16 @@ namespace PeglinTweaks.Battle
         }
     }
 
+    [HarmonyPatch(typeof(BattleController), "BombDamage", MethodType.Getter)]
+    class BombDmgMultiplierPatch
+    {
+        public static void Postfix(ref float __result)
+        {
+            __result *= Configuration.PlayerDmgMultiplier;
+        }
+            
+    }
+    
     [HarmonyPatch(typeof(PlayerHealthController), "Damage")]
     class EnemyDmgMultiplierPatch
     {
