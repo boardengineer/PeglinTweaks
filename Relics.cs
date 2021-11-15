@@ -3,10 +3,11 @@ using Relics;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
+using Battle;
 
 namespace PeglinTweaks.Relic
 {
-    [HarmonyPatch(typeof(Battle.PegManager), "ResetPeg")]
+    [HarmonyPatch(typeof(PegManager), "ResetPeg")]
     public class CookbookChancePatch
     {
         private static readonly FieldInfo chanceField = AccessTools.DeclaredField(typeof(RelicManager), "PEG_TO_BOMB_CHANCE");
