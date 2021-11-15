@@ -1,4 +1,5 @@
-﻿using Battle;
+﻿using System;
+using Battle;
 using Battle.Enemies;
 using HarmonyLib;
 
@@ -45,7 +46,7 @@ namespace PeglinTweaks.Battle
     {
         public static void Prefix(ref float ___StartingHealth)
         {
-            ___StartingHealth *= Configuration.EnemyHealthMultiplier;
+            ___StartingHealth = (float) Math.Round(___StartingHealth * Configuration.EnemyHealthMultiplier);
         }
     }
 }
