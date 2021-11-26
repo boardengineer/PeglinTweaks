@@ -21,6 +21,9 @@ namespace PeglinTweaks
         private static ConfigEntry<float> playerStartingHealthCfg;
         private static ConfigEntry<float> enemyHealthMultiplierCfg;
 
+        //Animation
+        private static ConfigEntry<bool> enableScreenShakeCfg;
+
         public static void BindConfigs(ConfigFile config)
         {
             //Relics
@@ -46,6 +49,10 @@ namespace PeglinTweaks
                 "The amount of health the player starts with");
             enemyHealthMultiplierCfg = config.Bind("Battle", "Enemy_Health_Multiplier", 1f,
                 "Multiplier for enemies' starting health");
+
+            //Animation
+            enableScreenShakeCfg = config.Bind("Animation", "Enable_Screen_Shake", true,
+                "Enable the screen shake animation on large damage output");
         }
 
         //Relics
@@ -64,5 +71,8 @@ namespace PeglinTweaks
         public static float EnemyDmgMultiplier => enemyDmgMultiplierCfg.Value;
         public static float PlayerStartingHealth => playerStartingHealthCfg.Value;
         public static float EnemyHealthMultiplier => enemyHealthMultiplierCfg.Value;
+        
+        //Animation
+        public static bool EnableScreenShake => enableScreenShakeCfg.Value;
     }
 }
