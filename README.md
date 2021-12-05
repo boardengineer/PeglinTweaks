@@ -8,7 +8,7 @@ crash your computer, or set your house on fire.
 ## Installation guide
 
 1. Install the BepInEx modloader according
-   to [this guide](https://docs.bepinex.dev/master/articles/user_guide/installation/unity_mono.html)
+   to [this guide](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 2. Download the PeglinTweaks.dll file [from the latest release](https://github.com/bo0tzz/PeglinTweaks/releases/latest/download/PeglinTweaks.dll)
 3. Place PeglinTweaks.dll in the `BepInEx/plugins` folder, inside the game folder
 
