@@ -6,6 +6,7 @@ namespace PeglinTweaks
     {
         //Relics
         private static ConfigEntry<float> cookbookBombChanceCfg;
+        private static ConfigEntry<int> matryoshkaMultiballLevel;
 
         //Pachinko
         private static ConfigEntry<int> aimerLengthCfg;
@@ -29,6 +30,8 @@ namespace PeglinTweaks
             //Relics
             cookbookBombChanceCfg = config.Bind("Relics", "Cookbook_Bomb_Chance", 0.07F,
                 "Alchemist's cookbook bomb conversion chance. Use a value between 0 and 1");
+            matryoshkaMultiballLevel = config.Bind("Relics", "Matryoshka_Multiball_Level", 1,
+                "The level of multiball provided by the matryoshka relic");
 
             //Pachinko
             aimerLengthCfg = config.Bind("Pachinko", "Aimer_Length", 35,
@@ -57,6 +60,7 @@ namespace PeglinTweaks
 
         //Relics
         public static float CookbookBombChance => cookbookBombChanceCfg.Value;
+        public static int MatryoshkaMultiballLevel => matryoshkaMultiballLevel.Value;
 
         //Pachinko
         public static int AimerLength => aimerLengthCfg.Value;
@@ -71,7 +75,7 @@ namespace PeglinTweaks
         public static float EnemyDmgMultiplier => enemyDmgMultiplierCfg.Value;
         public static float PlayerStartingHealth => playerStartingHealthCfg.Value;
         public static float EnemyHealthMultiplier => enemyHealthMultiplierCfg.Value;
-        
+
         //Animation
         public static bool EnableScreenShake => enableScreenShakeCfg.Value;
     }

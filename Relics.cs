@@ -30,4 +30,27 @@ namespace PeglinTweaks.Relic
             }
         }
     }
+
+    [HarmonyPatch(typeof(BattleController), "ArmBallForShot")]
+    public class MatryoshkaMultiballLevelPatch
+    {
+        private static readonly FieldInfo MatryoshkaLevelField =
+            AccessTools.DeclaredField(typeof(RelicManager), "MATRYOSHKA_MULTIBALL_LEVEL");
+        
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            foreach (var instruction in instructions)
+            {
+                if (instruction.LoadsField(MatryoshkaLevelField))
+                {
+                    yield return new CodeInstruction(OpCodes.Pop);
+                    yield return new CodeInstruction(OpCodes.Ldc_I4, Configuration.MatryoshkaMultiballLevel);
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+    }
 }
