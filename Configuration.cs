@@ -40,8 +40,8 @@ namespace PeglinTweaks
             aimerBouncesCfg = config.Bind("Pachinko", "Aimer_Bounces", 1,
                 "The amount of bounces that the aiming reticle shows");
 
-            gravityCfg = config.Bind("Pachinko", "Gravity", 1.2f, "The strength of gravity on orbs");
-            fireForceCfg = config.Bind("Pachinko", "Fire_Force", 400f, "The strength with which orbs are fired");
+            gravityCfg = config.Bind("Pachinko", "Gravity", 1.25f, "The strength of gravity on orbs");
+            fireForceCfg = config.Bind("Pachinko", "Fire_Force", 630f, "The strength with which orbs are fired");
             maxSpeedCfg = config.Bind("Pachinko", "Max_Speed", 55f, "The maximum speed of an orb");
 
             //Battle
