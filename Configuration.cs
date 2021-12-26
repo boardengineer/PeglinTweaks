@@ -21,6 +21,7 @@ namespace PeglinTweaks
         private static ConfigEntry<float> enemyDmgMultiplierCfg;
         private static ConfigEntry<float> playerStartingHealthCfg;
         private static ConfigEntry<float> enemyHealthMultiplierCfg;
+        private static ConfigEntry<int> orbDiscardAmountCfg;
 
         //Animation
         private static ConfigEntry<bool> enableScreenShakeCfg;
@@ -53,6 +54,8 @@ namespace PeglinTweaks
                 "The amount of health the player starts with");
             enemyHealthMultiplierCfg = config.Bind("Battle", "Enemy_Health_Multiplier", 1f,
                 "Multiplier for enemies' starting health");
+            orbDiscardAmountCfg = config.Bind("Battle", "Orb_Discard_Amount", 1,
+                "The amount of orbs you can discard");
 
             //Animation
             enableScreenShakeCfg = config.Bind("Animation", "Enable_Screen_Shake", true,
@@ -76,6 +79,7 @@ namespace PeglinTweaks
         public static float EnemyDmgMultiplier => enemyDmgMultiplierCfg.Value;
         public static float PlayerStartingHealth => playerStartingHealthCfg.Value;
         public static float EnemyHealthMultiplier => enemyHealthMultiplierCfg.Value;
+        public static int OrbDiscardAmount => orbDiscardAmountCfg.Value;
 
         //Animation
         public static bool EnableScreenShake => enableScreenShakeCfg.Value;
