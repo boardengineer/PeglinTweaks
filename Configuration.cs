@@ -25,6 +25,7 @@ namespace PeglinTweaks
 
         //Animation
         private static ConfigEntry<bool> enableScreenShakeCfg;
+        private static ConfigEntry<bool> enableLowHealthVignetteCfg;
 
         public static void BindConfigs(ConfigFile config)
         {
@@ -60,6 +61,8 @@ namespace PeglinTweaks
             //Animation
             enableScreenShakeCfg = config.Bind("Animation", "Enable_Screen_Shake", true,
                 "Enable the screen shake animation on large damage output");
+            enableLowHealthVignetteCfg = config.Bind("Animation", "Enable_Low_Health_Vignette", true,
+                "Enable the red vignette around the screen when Peglin is at low health");
         }
 
         //Relics
@@ -83,5 +86,6 @@ namespace PeglinTweaks
 
         //Animation
         public static bool EnableScreenShake => enableScreenShakeCfg.Value;
+        public static bool EnableLowHealthVignette => enableLowHealthVignetteCfg.Value;
     }
 }
