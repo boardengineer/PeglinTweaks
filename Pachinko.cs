@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Relics;
 
 namespace PeglinTweaks.Pachinko
 {
@@ -7,12 +8,13 @@ namespace PeglinTweaks.Pachinko
     {
         public static void Prefix(ref int ____baseMaxIterations)
         {
-           ____baseMaxIterations = Configuration.AimerLength;
+            ____baseMaxIterations = Configuration.AimerLength;
         }
 
-        public static void Postfix(ref int ____bounceCount)
+        public static void Postfix(ref int ____bounceCount, RelicManager _relicManager)
         {
-            ____bounceCount = Configuration.AimerBounces;
+            var bouncesBase = _relicManager.RelicEffectActive(RelicEffect.LONGER_AIMER) ? 1 : 0;
+            ____bounceCount = bouncesBase + Configuration.AimerBounces;
         }
     }
 
