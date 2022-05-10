@@ -17,12 +17,12 @@ namespace PeglinTweaks.Battle
         }
     }
 
-    [HarmonyPatch(typeof(BattleController), "BombDamage", MethodType.Getter)]
+    [HarmonyPatch(typeof(BattleController), "Awake")]
     class BombDmgMultiplierPatch
     {
-        public static void Postfix(ref float __result)
+        public static void Postfix(BattleController __instance)
         {
-            __result *= Configuration.PlayerDmgMultiplier;
+            __instance._baseBombDamage = Configuration.BombBaseDamage;
         }
     }
 
