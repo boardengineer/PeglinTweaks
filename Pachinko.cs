@@ -11,9 +11,9 @@ namespace PeglinTweaks.Pachinko
             ____baseMaxIterations = Configuration.AimerLength;
         }
 
-        public static void Postfix(ref int ____bounceCount, RelicManager _relicManager)
+        public static void Postfix(ref int ____bounceCount, RelicManager relicManager)
         {
-            var bouncesBase = _relicManager.RelicEffectActive(RelicEffect.LONGER_AIMER) ? 1 : 0;
+            var bouncesBase = relicManager.RelicEffectActive(RelicEffect.LONGER_AIMER) ? 1 : 0;
             ____bounceCount = bouncesBase + Configuration.AimerBounces;
         }
     }
