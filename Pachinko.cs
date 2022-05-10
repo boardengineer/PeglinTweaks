@@ -21,11 +21,10 @@ namespace PeglinTweaks.Pachinko
     [HarmonyPatch(typeof(PachinkoBall), "Start")]
     class PhysicsPatch
     {
-        public static void Prefix(ref float ___GravityScale, ref float ___FireForce, ref float ___MaxSpeed)
+        public static void Prefix(ref float ___GravityScale, ref float ___FireForce)
         {
             ___GravityScale = Configuration.Gravity;
             ___FireForce = Configuration.FireForce;
-            ___MaxSpeed = Configuration.MaxSpeed;
         }
     }
 }
