@@ -1,7 +1,5 @@
 # PeglinTweaks
 
-**This mod has not been updated for the early access release, and has not been tested. It probably does not work.**
-
 This is a mod for Peglin that adds several small tweaks, like changing the behaviour of some relics.
 
 This mod is imperfect and comes with no warranties. It may break your game, prevent you from creating new savefiles,
