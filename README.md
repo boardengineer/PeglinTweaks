@@ -20,6 +20,7 @@ The mod is configured via the `BepInEx/config/me.bo0tzz.peglin.Tweaks.cfg` file.
 
 * Tweak the physics of the pachinko game (gravity, etc)
 * Tweak your and enemies' health and damage
+* Tweak the base damage of bombs
 * Tweak the length and bounce count of the aiming reticle
 * Tweak the amount of orbs you can discard
 * Edit odds and bonuses that you get from relics
