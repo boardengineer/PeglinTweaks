@@ -15,6 +15,8 @@ namespace PeglinTweaks
         private static ConfigEntry<float> gravityCfg;
         private static ConfigEntry<float> fireForceCfg;
 
+        private static ConfigEntry<bool> enableOrbsCollision;
+
         //Battle
         private static ConfigEntry<float> playerDmgMultiplierCfg;
         private static ConfigEntry<float> bombBaseDamageCfg;
@@ -40,6 +42,9 @@ namespace PeglinTweaks
 
             gravityCfg = config.Bind("Pachinko", "Gravity", 1.25f, "The strength of gravity on orbs");
             fireForceCfg = config.Bind("Pachinko", "Fire_Force", 630f, "The strength with which orbs are fired");
+            
+            enableOrbsCollision = config.Bind("Pachinko", "Enable_Orb_Collision", false,
+                "Enable collision between orbs (when multiball is active)");
 
             //Battle
             playerDmgMultiplierCfg = config.Bind("Battle", "Player_Dmg_Multiplier", 1f,
@@ -66,6 +71,8 @@ namespace PeglinTweaks
 
         public static float Gravity => gravityCfg.Value;
         public static float FireForce => fireForceCfg.Value;
+
+        public static bool EnableOrbsCollision => enableOrbsCollision.Value;
         
         //Battle
         public static float PlayerDmgMultiplier => playerDmgMultiplierCfg.Value;

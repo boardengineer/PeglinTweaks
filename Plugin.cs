@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using HarmonyLib;
+using UnityEngine;
 
 namespace PeglinTweaks
 {
@@ -13,6 +14,11 @@ namespace PeglinTweaks
         {
             Configuration.BindConfigs(Config);
 
+            if (Configuration.EnableOrbsCollision)
+            {
+                Physics2D.IgnoreLayerCollision(13, 13, false);
+            }
+            
             harmony.PatchAll();
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         }
