@@ -23,10 +23,6 @@ namespace PeglinTweaks
         private static ConfigEntry<float> enemyHealthMultiplierCfg;
         private static ConfigEntry<int> orbDiscardAmountCfg;
 
-        //Animation
-        private static ConfigEntry<bool> enableScreenShakeCfg;
-        private static ConfigEntry<bool> enableLowHealthVignetteCfg;
-
         public static void BindConfigs(ConfigFile config)
         {
             //Relics
@@ -58,12 +54,6 @@ namespace PeglinTweaks
                 "Multiplier for enemies' starting health");
             orbDiscardAmountCfg = config.Bind("Battle", "Orb_Discard_Amount", 1,
                 "The amount of orbs you can discard");
-
-            //Animation
-            enableScreenShakeCfg = config.Bind("Animation", "Enable_Screen_Shake", true,
-                "Enable the screen shake animation on large damage output");
-            enableLowHealthVignetteCfg = config.Bind("Animation", "Enable_Low_Health_Vignette", true,
-                "Enable the red vignette around the screen when Peglin is at low health");
         }
 
         //Relics
@@ -84,9 +74,5 @@ namespace PeglinTweaks
         public static float PlayerStartingHealth => playerStartingHealthCfg.Value;
         public static float EnemyHealthMultiplier => enemyHealthMultiplierCfg.Value;
         public static int OrbDiscardAmount => orbDiscardAmountCfg.Value;
-
-        //Animation
-        public static bool EnableScreenShake => enableScreenShakeCfg.Value;
-        public static bool EnableLowHealthVignette => enableLowHealthVignetteCfg.Value;
     }
 }
