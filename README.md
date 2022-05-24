@@ -6,11 +6,8 @@ This mod is imperfect and comes with no warranties. It may break your game, prev
 crash your computer, or set your house on fire.
 
 ## Installation guide
-
-1. Install the BepInEx 5 modloader according
-   to [this guide](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
-2. Download the PeglinTweaks.dll file [from the latest release](https://github.com/bo0tzz/PeglinTweaks/releases/latest/download/PeglinTweaks.dll)
-3. Place PeglinTweaks.dll in the `BepInEx/plugins` folder, inside the game folder
+You can download the mod from [Thunderstore](https://peglin.thunderstore.io/).   
+See https://mods.pegl.in/ for links to the Discord and more.
 
 ## Configuration
 
