@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using Battle;
+using Battle.Attacks;
 using Battle.Enemies;
 using HarmonyLib;
 
