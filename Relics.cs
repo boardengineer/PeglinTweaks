@@ -1,9 +1,10 @@
-﻿using HarmonyLib;
+﻿
+using Battle;
+using HarmonyLib;
 using Relics;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
-using Battle;
 
 namespace PeglinTweaks.Relic
 {
@@ -36,7 +37,7 @@ namespace PeglinTweaks.Relic
     {
         private static readonly FieldInfo MatryoshkaLevelField =
             AccessTools.DeclaredField(typeof(RelicManager), "MATRYOSHKA_MULTIBALL_LEVEL");
-        
+
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             foreach (var instruction in instructions)

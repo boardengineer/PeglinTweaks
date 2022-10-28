@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using Battle;
+﻿using Battle;
 using Battle.Attacks;
 using Battle.Enemies;
+using BepInEx.Logging;
 using HarmonyLib;
+using System;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace PeglinTweaks.Battle
 {
@@ -13,6 +14,8 @@ namespace PeglinTweaks.Battle
     {
         public static void Prefix(ref float ___DamagePerPeg, ref float ___CritDamagePerPeg)
         {
+            Logger.CreateLogSource("Test Log Source").LogInfo("Attack Init");
+
             ___DamagePerPeg *= Configuration.PlayerDmgMultiplier;
             ___CritDamagePerPeg *= Configuration.PlayerDmgMultiplier;
         }
@@ -21,9 +24,11 @@ namespace PeglinTweaks.Battle
     [HarmonyPatch(typeof(BattleController), "Awake")]
     class BombDmgMultiplierPatch
     {
-        public static void Postfix(BattleController __instance)
+        public static void Postfix(BattleController __instance, ref DamageCountDisplay ____damageCountDisplay)
         {
             __instance._baseBombDamage = Configuration.BombBaseDamage;
+            Pachinko.holder.battleController = __instance;
+            Pachinko.holder.damageDisplay = ____damageCountDisplay;
         }
     }
 
@@ -48,7 +53,7 @@ namespace PeglinTweaks.Battle
     {
         public static void Prefix(ref float ___StartingHealth)
         {
-            ___StartingHealth = (float) Math.Round(___StartingHealth * Configuration.EnemyHealthMultiplier);
+            ___StartingHealth = (float)Math.Round(___StartingHealth * Configuration.EnemyHealthMultiplier);
         }
     }
 
@@ -63,7 +68,7 @@ namespace PeglinTweaks.Battle
                 if (!patched && instruction.opcode == OpCodes.Ldc_I4_1)
                 {
                     patched = true;
-                    yield return new CodeInstruction(OpCodes.Ldc_I4, Configuration.OrbDiscardAmount);
+                    yield return new CodeInstruction(OpCodes.Ldc_I4, (Configuration.OrbDiscardAmount));
                 }
                 else
                 {

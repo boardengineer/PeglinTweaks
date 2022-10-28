@@ -18,7 +18,7 @@ namespace PeglinTweaks
             {
                 Physics2D.IgnoreLayerCollision(13, 13, false);
             }
-            
+
             harmony.PatchAll();
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         }

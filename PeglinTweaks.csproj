@@ -20,4 +20,19 @@
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Unity.TextMeshPro">
+        <HintPath>..\..\Program Files (x86)\Steam\steamapps\common\Peglin\Peglin_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\..\Program Files (x86)\Steam\steamapps\common\Peglin\Peglin_Data\Managed\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TextCoreModule">
+        <HintPath>..\..\Program Files (x86)\Steam\steamapps\common\Peglin\Peglin_Data\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UI">
+        <HintPath>..\..\Program Files (x86)\Steam\steamapps\common\Peglin\Peglin_Data\Managed\UnityEngine.UI.dll</HintPath>
+      </Reference>
+    </ItemGroup>
 </Project>
